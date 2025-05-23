@@ -1,0 +1,15 @@
+{
+	"name": "em@kab's YouTube Tweaks",
+	"permissions": ["webNavigation", "activeTab", "storage"],
+	"description": "em@kab's assortment of various custom YouTube quality-of-life tweaks.",
+	"version": "1.0",
+	"manifest_version": 3,
+	"action": {},
+	"content_scripts": [
+		{
+			"js": ["tweaks/playlist_search/tweak.js"],
+			"matches": ["https://www.youtube.com/playlist?*"],
+			"run_at": "document_idle"
+		}
+	]
+}
