@@ -74,7 +74,9 @@ function handleSubmit(e) {
 
 function handleClick(e) {
 	e.preventDefault();
-	searchInputChange(e);
+	searchInputChange({
+		target: { value: e_playlist_search_input.value },
+	});
 }
 
 function searchInputChange(e) {
