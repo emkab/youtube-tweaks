@@ -7,27 +7,29 @@ const a_video_channels = [];
 const e_playlist_search_input_label = document.createElement("label", {
 	for: "ek_yt_tweaks_playlist_search_input",
 });
+e_playlist_search_input_label.textContent = "Search Playlist:";
+const e_playlist_search_input = document.createElement("input", {
+	type: "search",
+	name: "ek_yt_tweaks_playlist_search_input",
+	id: "ek_yt_tweaks_playlist_search_input",
+});
+const e_playlist_search_form = document.createElement("form");
+const e_playlist_search_submit_button = document.createElement("button");
+e_playlist_search_submit_button.textContent = "Search";
+e_playlist_search_form.appendChild(e_playlist_search_input_label);
+e_playlist_search_form.appendChild(e_playlist_search_input);
+e_playlist_search_form.appendChild(e_playlist_search_submit_button);
 
 async function init() {
-	e_playlist_search_input_label.textContent = "Search Playlist:";
-	const e_playlist_search_input = document.createElement("input", {
-		type: "search",
-		name: "ek_yt_tweaks_playlist_search_input",
-		id: "ek_yt_tweaks_playlist_search_input",
-	});
-
 	await sleep(500);
 
 	const e_video_list = document.querySelector(s_video_list);
-	console.log("EMKAB PLAYLIST SEARCH UP");
+	// console.log("EMKAB PLAYLIST SEARCH UP");
 	if (e_video_list) {
 		// console.log("EK YT TWEAKS: FOUND e_video_list");
-		e_playlist_search_input.addEventListener("input", searchInputChange);
-		e_video_list.parentNode.insertBefore(e_playlist_search_input, e_video_list);
-		e_playlist_search_input.parentNode.insertBefore(
-			e_playlist_search_input_label,
-			e_playlist_search_input
-		);
+		e_playlist_search_input.addEventListener("keydown", handleSubmit);
+		e_playlist_search_submit_button.addEventListener("click", handleClick);
+		e_video_list.parentNode.insertBefore(e_playlist_search_form, e_video_list);
 
 		var observer = new MutationObserver(function (mutationsList) {
 			searchInputChange({
@@ -61,6 +63,18 @@ function getPlaylistVideoMeta() {
 		if (e_video_channel)
 			a_video_channels[i] = e_video_channel.textContent.trim();
 	}
+}
+
+function handleSubmit(e) {
+	if (e.code == "Enter") {
+		e.preventDefault();
+		searchInputChange(e);
+	}
+}
+
+function handleClick(e) {
+	e.preventDefault();
+	searchInputChange(e);
 }
 
 function searchInputChange(e) {
