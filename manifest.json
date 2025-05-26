@@ -1,7 +1,7 @@
 {
 	"name": "em@kab's YouTube Playlist Search",
 	"description": "em@kab's YouTube playlist search tool designed to be fast, intuitive, efficient, and easy on the eyes.",
-	"version": "1.0",
+	"version": "1.0.0.1",
 	"manifest_version": 3,
 	"action": {},
 	"content_scripts": [

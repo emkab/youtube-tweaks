@@ -31,7 +31,7 @@ e_playlist_search_form.appendChild(e_playlist_search_submit_button);
 e_playlist_search_form.style.color =
 	"var(--ytd-searchbox-legacy-button-icon-color)";
 e_playlist_search_form.style.backgroundColor = "var(--yt-spec-base-background)";
-e_playlist_search_form.style.width = "90%";
+e_playlist_search_form.style.width = "40%";
 // e_playlist_search_form.style.height = "32px";
 e_playlist_search_form.style.marginBottom = "15px";
 e_playlist_search_form.style.display = "flex";
