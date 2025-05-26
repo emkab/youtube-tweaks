@@ -1,7 +1,6 @@
 {
-	"name": "em@kab's YouTube Tweaks",
-	"permissions": ["webNavigation", "activeTab", "storage"],
-	"description": "em@kab's assortment of various custom YouTube quality-of-life tweaks.",
+	"name": "em@kab's YouTube Playlist Search",
+	"description": "em@kab's YouTube playlist search tool designed to be fast, intuitive, efficient, and easy on the eyes.",
 	"version": "1.0",
 	"manifest_version": 3,
 	"action": {},
