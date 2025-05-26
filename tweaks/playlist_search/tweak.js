@@ -9,21 +9,21 @@ const s_title_postfix = " #video-title";
 const s_channel_postfix = " #channel-name #text > a";
 const a_video_titles = [];
 const a_video_channels = [];
-const e_playlist_search_input_label = document.createElement("label", {
-	for: "ek_yt_tweaks_playlist_search_input",
-});
+const e_playlist_search_input_label = document.createElement("label");
+e_playlist_search_input_label.for = "ek_yt_tweaks_playlist_search_input";
 e_playlist_search_input_label.textContent = "Search Playlist:";
-const e_playlist_search_input = document.createElement("input", {
-	type: "search",
-	name: "ek_yt_tweaks_playlist_search_input",
-	id: "ek_yt_tweaks_playlist_search_input",
-	autocomplete: "on",
-});
-const e_playlist_search_form = document.createElement("form", {
-	id: "ek_yt_tweaks_playlist_search_form",
-});
+const e_playlist_search_input = document.createElement("input");
+e_playlist_search_input.type = "search";
+e_playlist_search_input.name = "ek_yt_tweaks_playlist_search_input";
+e_playlist_search_input.id = "ek_yt_tweaks_playlist_search_input";
+e_playlist_search_input.placeholder = "Search";
+e_playlist_search_input.autocomplete = "on";
+
+const e_playlist_search_form = document.createElement("form");
+e_playlist_search_form.id = "ek_yt_tweaks_playlist_search_form";
 const e_playlist_search_submit_button = document.createElement("button");
-e_playlist_search_submit_button.textContent = "Search";
+e_playlist_search_submit_button.innerHTML =
+	"<svg xmlns='http://www.w3.org/2000/svg' fill='currentColor' height='24' viewBox='0 0 24 24' width='24' focusable='false' aria-hidden='true' style='pointer-events: none; display: inherit; width: 100%; height: 100%;'><path clip-rule='evenodd' d='M16.296 16.996a8 8 0 11.707-.708l3.909 3.91-.707.707-3.909-3.909zM18 11a7 7 0 00-14 0 7 7 0 1014 0z' fill-rule='evenodd'></path></svg>";
 e_playlist_search_form.appendChild(e_playlist_search_input_label);
 e_playlist_search_form.appendChild(e_playlist_search_input);
 e_playlist_search_form.appendChild(e_playlist_search_submit_button);
@@ -32,7 +32,7 @@ e_playlist_search_form.style.color =
 	"var(--ytd-searchbox-legacy-button-icon-color)";
 e_playlist_search_form.style.backgroundColor = "var(--yt-spec-base-background)";
 e_playlist_search_form.style.width = "90%";
-e_playlist_search_form.style.height = "32px";
+// e_playlist_search_form.style.height = "32px";
 e_playlist_search_form.style.marginBottom = "15px";
 e_playlist_search_form.style.display = "flex";
 e_playlist_search_form.style.justifyContent = "between";
@@ -43,29 +43,35 @@ e_playlist_search_input_label.style.display = "none";
 e_playlist_search_input.style.display = "inline-block";
 e_playlist_search_submit_button.style.display = "inline-block";
 
-e_playlist_search_input.style.width = "80%";
-e_playlist_search_submit_button.style.width = "10%";
+e_playlist_search_input.style.width = "max-content";
+e_playlist_search_submit_button.style.width = "fit-content";
+e_playlist_search_submit_button.style.height = "fit-content";
+e_playlist_search_submit_button.style.padding = "5px";
 
 e_playlist_search_input.style.color =
 	"var(--ytd-searchbox-legacy-button-icon-color)";
 e_playlist_search_input.style.backgroundColor =
-	"var(--yt-spec-menu-background)";
+	"var(--yt-spec-base-background)";
 e_playlist_search_input.style.borderRadius = "12px";
-e_playlist_search_input.style.border = "none";
+e_playlist_search_input.style.border =
+	"1px solid var(--yt-spec-10-percent-layer)";
 e_playlist_search_input.style.fontSize = "1.45em";
 e_playlist_search_input.style.padding = "0 10px";
 e_playlist_search_input.style.outline = "none";
+e_playlist_search_input.style.flexGrow = "10";
 
 e_playlist_search_submit_button.style.color =
 	"var(--ytd-searchbox-legacy-button-icon-color)";
 e_playlist_search_submit_button.style.backgroundColor =
 	"var(--yt-spec-menu-background)";
 e_playlist_search_submit_button.style.borderRadius = "12px";
-e_playlist_search_submit_button.style.border = "none";
+e_playlist_search_submit_button.style.border =
+	"1px solid var(--yt-spec-10-percent-layer)";
 e_playlist_search_submit_button.style.cursor = "pointer";
 e_playlist_search_submit_button.style.marginLeft = "5px";
 e_playlist_search_submit_button.style.fontSize = "1.45em";
 e_playlist_search_submit_button.style.fontWeight = "semibold";
+e_playlist_search_submit_button.style.flexGrow = "0";
 
 async function init() {
 	await sleep(500);
